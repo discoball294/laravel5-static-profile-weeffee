@@ -8,7 +8,7 @@ Before start install the dependencies first with composer install command.
 $ composer install
 ```
 
-this project is created with Laravel Framework
+this project is created using Laravel Framework
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
