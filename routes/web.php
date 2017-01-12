@@ -26,3 +26,7 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+Route::get('/documentation', function () {
+    return view('documentation.documentation');
+})->name('documentation');
+Route::post('/send', 'ContactFormController@postContactForm')->name('send');

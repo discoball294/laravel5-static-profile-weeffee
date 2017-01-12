@@ -50,10 +50,11 @@
                     </li>
                 </ul>
                 <p class="fade-half">
-                    438 Malvern Road
-                    <br /> Armadale, VIC 3134
-                    <br /> (03) 38237 37263
-                    <br /> hello@foundry.net
+                    Jl. Sadewo no. 28b
+                    <br> Polehan, Malang
+                    <br> 65121
+                    <br /> <a class="color-white" href="mailto:info@weeffeestudio.net">info@weeffeestudio.net</a>
+                    <br /> <a class="color-white" href="tel:0341394272">+62341 394 272</a>
                 </p>
                 <ul class="list-inline social-list">
                     <li>

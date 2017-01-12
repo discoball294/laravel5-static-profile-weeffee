@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-<title>Contact - Weeffee Studio</title>
+    <title>Contact - Weeffee Studio</title>
 @endsection
 
 @section('content')
@@ -33,7 +33,8 @@
         <div class="col-md-6 col-md-offset-1 content">
             <h4 class="uppercase">Get In Touch</h4>
             <p>
-                Need a killer graphic design, interactive mobile app and website or engaging social media marketing? We would love to hear how we can help in achieving your digital communication goals!
+                Need a killer graphic design, interactive mobile app and website or engaging social media marketing? We
+                would love to hear how we can help in achieving your digital communication goals!
             </p>
             <hr>
             <p>
@@ -49,6 +50,7 @@
             </p>
         </div>
     </section>
+    <a id="form-contact"></a>
     <section class="image-square right">
         <div class="col-md-6 p0 image">
             <div class="map-holder background-image-holder fadeIn" style="background: url(&quot;undefined&quot;);">
@@ -56,11 +58,39 @@
             </div>
         </div>
         <div class="col-md-6 content">
-            <form class="form-email" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+            @if(Session::has('success'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <strong>Hooray!</strong> {{ Session::get('message') }}
+                </div>
+            @endif
+            @if(count($errors) > 0)
+
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <strong>Oops!</strong>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+
+
+            @endif
+            <form method="post" action="{{ route('send') }}">
                 <h6 class="uppercase text-center">Send A Message</h6>
-                <input type="text" class="validate-required" name="name" placeholder="Your Name">
-                <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address">
-                <textarea class="validate-required" name="message" rows="4" placeholder="Message"></textarea>
+                <input type="text" class="validate-required" name="name" placeholder="Your Name"
+                       value="{{ old('name') }}">
+                <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address"
+                       value="{{ old('email') }}">
+                <textarea class="validate-required" name="message" rows="4" placeholder="Message"
+                          value="{{ old('message') }}"></textarea>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <button type="submit">Send Message</button>
             </form>
         </div>

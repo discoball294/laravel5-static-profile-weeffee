@@ -41,7 +41,7 @@
         </div>
         <!--end of container-->
     </section>
-    <section class="bg-secondary">
+    <section class=" pb32 bg-secondary">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
